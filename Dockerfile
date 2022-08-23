@@ -1,3 +1,3 @@
 FROM php
-
-CMD [ "php", "./program.php" ]
+#WORKDIR /program
+#CMD [ "php", "./program.php" ]
