@@ -25,9 +25,9 @@ while(true) {
 
     $fullAmount = $firstCmd * $secondCmd * $thirdCmd * $fourthCmd;
     $halfAmount = ($firstCmd * $secondCmd * $thirdCmd * $fourthCmd) / 2;
-    $trtPrsnt_amount = ($firstCmd * $secondCmd * $thirdCmd * $fourthCmd) * 30 / 100;
+    $trtPrsntAmount = ($firstCmd * $secondCmd * $thirdCmd * $fourthCmd) * 30 / 100;
 
     echo "Выручка 100%:" . $fullAmount . PHP_EOL;
     echo "Выручка 50%:" . $halfAmount . PHP_EOL;
-    echo "Выручка 30%:" . $trtPrsnt_amount . PHP_EOL;
+    echo "Выручка 30%:" . $trtPrsntAmount . PHP_EOL;
 }
