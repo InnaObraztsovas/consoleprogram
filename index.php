@@ -8,12 +8,12 @@ $lessons = readLine("Количество уроков в день:");
 
 $fullAmount = $days * $price * $students * $lessons;
 
-function calculatePersent(int $per, int|float $amount): int|float
+function calculatePersent( int $per, int|float $amount): int|float
 {
     return $amount*$per / 100;
 }
 
-function tax(int $tax, int|float $amount): int|float
+function tax( int $tax, int|float $amount): int|float
 {
     return $amount - $amount*($tax/100);
 }
