@@ -1,11 +1,13 @@
 version: "3"
 
-
 services:
   server:
     build:
       context: .
       dockerfile: Dockerfile
+    tty: true
+    stdin_open: true
     volumes:
-      - .:/var/www/html
+      - .:/app
+
 

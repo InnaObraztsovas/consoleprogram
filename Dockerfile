@@ -1,4 +1,5 @@
-FROM php:8.1
+FROM php:8.1-cli
 
 WORKDIR /app
-CMD ["php", "./index.php"]
+
+CMD ["php", "index.php"]
