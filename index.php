@@ -80,7 +80,6 @@ class Service
         if ($days > 31) {
             throw new \Exception('Max value is 31');
         }
-        $catch = true;
     }
 
 }
