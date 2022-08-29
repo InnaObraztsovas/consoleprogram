@@ -1,13 +1,19 @@
 <?php
 
-class CLI
-{
-    private const QUESTIONS = [
+interface Command{
+
+    public const QUESTIONS = [
         'days' => "Количетво рабочих дней в месяц:",
         'price' => "Цена за урок с человека:",
         'students' => "Количество учеников в группе:",
         'lessons' => "Количество уроков в день:"
     ];
+
+    public function logic();
+
+}
+class CLI implements Command
+{
 
     public function logic(): void
     {
@@ -27,17 +33,12 @@ class Service
 
     private string $errorKey;
 
-    /**
-     * @return string
-     */
+
     public function getErrorKey(): string
     {
         return $this->errorKey;
     }
 
-    /**
-     * @param string $errorKey
-     */
     public function setErrorKey(string $errorKey): void
     {
         $this->errorKey = $errorKey;
