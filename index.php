@@ -47,20 +47,22 @@ class Service
     {
         $input = [];
         foreach ($questions as $key => $question) {
-            try {
-                $input[$key] = readLine($question);
-                $this->validateInput($input[$key]);
-                if (in_array($key, self::VALIDATE_COUNT_DAYS)) {
-                    $this->validateCountDays($input[$key]);
+            do {
+                try {
+                    $error = false;
+                    $input[$key] = readLine($question);
+                    $this->validateInput($input[$key]);
+                    if (in_array($key, self::VALIDATE_COUNT_DAYS)) {
+                        $this->validateCountDays($input[$key]);
+                    }
+                } catch (Throwable $e) {
+                    $error = true;
+                    $this->setErrorKey($key);
+                    readline($e->getMessage());
                 }
-
-            } catch (Throwable $e) {
-                ;
-                $this->setErrorKey($key);
-                readline($e->getMessage());
-                $input[$key] = readLine($question);
-            }
+            } while ($error);
         }
+
         return $input;
     }
 
@@ -77,6 +79,7 @@ class Service
         if ($days > 31) {
             throw new \Exception('Max value is 31');
         }
+        $catch = true;
     }
 
 }
