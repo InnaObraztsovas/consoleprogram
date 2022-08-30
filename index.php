@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 class OutputData
 {
 
-    public function logic()
+    public function logic(): void
     {
         $inputData = new InputData();
         $calculate = new Calculate();
@@ -25,7 +25,7 @@ class OutputData
 class InputData
 {
 
-    public function getData(array $data)
+    public function getData(array $data): array
     {
         $service = new Service();
         $str = file_get_contents('http://localhost/input.json');
@@ -43,7 +43,6 @@ class InputData
         return $input;
     }
 }
-
 
 class CLI
 {
@@ -148,7 +147,7 @@ class Calculate
         }
     }
 
-    public function dataOutputJson($fullAmount)
+    public function dataOutputJson($fullAmount): mixed
     {
         $result = [];
         for ($i = 30; $i < 80; $i += 10) {
