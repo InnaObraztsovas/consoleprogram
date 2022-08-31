@@ -1,6 +1,11 @@
 <?php
 
-namespace Core;
+//namespace Core;
+require_once "src/Calculate.php";
+require_once "src/InputData.php";
+//require_once "src/Service.php";
+require_once "src/web.php";
+require_once "src/command.php";
 
 class Service
 {

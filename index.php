@@ -1,20 +1,18 @@
 <?php
 
-require_once 'vendor/autoload.php';
-//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//    $data = json_decode(file_get_contents('php://input'), true);
-//    var_dump($data);
-////    $the_file = fopen("input.json", 'wb') or die("Unable to open file!");
-////    fwrite($the_file, json_encode($data, JSON_THROW_ON_ERROR));
-////    fclose($the_file);
-////    echo "success";
-//}
+require_once "src/Calculate.php";
+require_once "src/InputData.php";
+require_once "src/Service.php";
+require_once "src/web.php";
+require_once "src/command.php";
 
-//
+if(php_sapi_name() == "cli"){
+    require_once "./src/command.php";
+}else {
+    require_once "./src/web.php";
+}
 
-
-$a = new Core\CLI();
-$a->logic();
+exit();
 
 
 
