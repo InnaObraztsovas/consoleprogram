@@ -1,18 +1,15 @@
 <?php
 
-require_once "src/Calculate.php";
-require_once "src/InputData.php";
-require_once "src/Service.php";
-require_once "src/web.php";
-require_once "src/command.php";
+require_once './vendor/autoload.php';
 
-if(php_sapi_name() == "cli"){
-    require_once "./src/command.php";
-}else {
-    require_once "./src/web.php";
+if (php_sapi_name() == "cli") {
+    (new \Core\CliHandler(
+        new \Core\Calculate())
+    )();
+} else {
+    (new \Core\WebHandler(
+        new \Core\Calculate()
+    ))();
 }
 
 exit();
-
-
-
