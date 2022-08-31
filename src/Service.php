@@ -1,11 +1,6 @@
 <?php
 
-//namespace Core;
-require_once "src/Calculate.php";
-require_once "src/InputData.php";
-//require_once "src/Service.php";
-require_once "src/web.php";
-require_once "src/command.php";
+namespace Core;
 
 class Service
 {
@@ -33,19 +28,18 @@ class Service
             do {
                 try {
                     $error = false;
-                    $input[$key] = readLine($question);
+                    $input[$key] = readline($question);
                     $this->validateInput($input[$key]);
                     if (in_array($key, self::VALIDATE_COUNT_DAYS)) {
                         $this->validateCountDays($input[$key]);
                     }
-                } catch (Throwable $e) {
+                } catch (\Throwable $e) {
                     $error = true;
                     $this->setErrorKey($key);
                     readline($e->getMessage());
                 }
             } while ($error);
         }
-
         return $input;
     }
 
