@@ -11,30 +11,8 @@ class CliHandler
         'lessons' => "Количество уроков в день:"
     ];
 
-    public function __construct(private Calculate $calculate, private Service $service)
+    public function __construct(private Calculate $calculate, private Service $service, private View $view)
     {
-        $this->setService($service);
-        $this->setCalculate($calculate);
-    }
-
-    public function getCalculate(): Calculate
-    {
-        return $this->calculate;
-    }
-
-    public function setCalculate(Calculate $calculate): void
-    {
-        $this->calculate = $calculate;
-    }
-
-    public function getService(): Service
-    {
-        return $this->service;
-    }
-
-    public function setService(Service $service): void
-    {
-        $this->service = $service;
     }
 
 
@@ -42,6 +20,6 @@ class CliHandler
     {
         $result = $this->service->writeCommand(self::QUESTIONS);
         $fullAmount = $this->calculate->calculateFullAmount($result);
-        $this->calculate->dataOutput($fullAmount);
+        $this->view->dataOutput($fullAmount);
     }
 }
